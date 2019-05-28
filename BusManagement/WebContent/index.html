@@ -1,0 +1,106 @@
+<html>
+<head><title></title></head>
+<style>
+	body
+	{
+		margin:0;
+	}
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  		color: gray;
+  		opacity: 0.9; /* Firefox */
+  		font-weight:bold;
+  		font-family:segoe UI;
+  		font-size:13px;
+	}
+	#back
+	{
+		height:100%;
+		width:100%;
+		background:url('image/imag1.jpg');
+		background-size: cover;
+		background-position:center;
+		position:relative;
+	}
+	#form-container
+	{
+		width:380px;
+		height:80%;
+		background-color:white;
+		position:absolute;
+		top:10%;
+		left:34%;
+		/*opacity:0.7;*/
+		box-shadow:2px 2px 10px 0px gray;
+		border-radius : 6px;
+	}
+	#title
+	{
+		font-size : 30px;
+		font-family:Segoe UI;
+		margin-top : 20px;
+		margin-bottom : 20px;
+		letter-spacing:1.5px;
+		font-weight:bold; 
+	}
+	.input-elements
+	{
+		height:53px;
+		width:80%;
+		margin-left:10%;
+		margin-top:30px;
+		border:none;
+		outline:none;
+		border-radius:15px;
+		padding-left:15px;
+		box-shadow: 1px 1px 12px 0px #cac8c8;
+		font-size:13px;
+	}
+	#mybutton
+	{
+	    height: 46px;
+	    width: 40%;
+	    margin-left: 30%;
+	    margin-top: 40px;
+	    border-radius: 24px;
+	    outline: none;
+	    border: none;
+	    box-shadow: 2px 5px 18px 2px #c3c1c1;
+	    background-color: #bd59d4;
+	    color: white;
+	    font-size: 15px;
+	}
+</style>
+<body>
+	<div id = "back">
+		<div id = "form-container">
+			<form action="user-dashboard.html" name = "MY form"  method="post" onsubmit = "return myValidation()">
+				<center><div id = "title">Sign In</div></center>
+				<input type = "text" name = "email" placeholder="Username or Email" class="input-elements">
+				<input type = "password" name = "pw" placeholder="Password" class="input-elements">
+				<button type = "submit" id = "mybutton">SIGN IN</button>
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+	function myValidation()
+	{
+    	var value = document.forms["MY form"]["email"].value;
+    	var value1 = document.forms["MY form"]["pw"].value;
+    	var flag=true;
+    	if(value == "")
+    	{
+    		alert("field can not be empty");
+    		flag=false;
+            //return false;
+         }
+         if(value1 == "")
+         {
+         	alert("password can not be empty");
+         	flag=false;
+            //return false;
+         }
+         return flag;
+	}
+	</script>
+</html>

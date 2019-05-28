@@ -1,0 +1,480 @@
+<html>
+<head>
+
+	<title>Bus Management - Add Destination</title>
+	<link rel="shortcut icon" type="text/css" href="logo.svg.png">
+</head>
+<!-- Latest compiled JavaScript -->
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+	html{
+	    min-width: 100%;
+    	overflow-x: hidden;
+	}
+	body{
+		min-width: 100%;
+    	overflow-x: hidden;	
+	}
+	#logo
+	{
+		background-color :#3e454c;
+		height : 67px;
+		width : 260px;
+		float:left;
+		box-shadow: 0px 1px 10px 0px #2b2929;
+		transition : .5s;
+	}
+	#nav
+	{
+		background-color :white;
+		height : 67px;
+		float:left;
+		transition : .5s;
+		position:relative;
+		border-bottom:0.1px solid lightgray;
+	}
+	#sidebar
+	{
+		background-color : #2c3136;
+		height : 628px;
+		width:260px;
+		float:left;
+		transition : .5s;
+		overflow-x:hidden;
+		z-index:1;
+	}
+	#main
+	{
+		background-color: #f1f3f6;
+		height:628px;
+		float:left;
+		transition : .5s;
+	}
+	#user-logo
+	{
+		width:100%;
+		height : 25%;
+		color:white;
+		font-size: 14px;
+		transition : .4s;
+	}
+	#img
+	{
+		margin: 20px 0px 10px 0px;
+		border : 2px solid gray;
+		height : 70px;
+		width:70px;
+		border-radius:50%;
+		padding:5px;
+	}
+	#status
+	{
+		height: 10px;
+	    width: 10px;
+	    border-radius: 50%;
+	    background-color: #37a000;
+	    float:left;
+	    margin-left: 103px;
+    	margin-right: 6px;
+    	margin-top: 3px;
+	}
+	.side-elements
+	{
+		font-size: 15px;
+    	font-weight: 500;
+    	letter-spacing: .3px;
+    	font-family: segoe UI;
+    	/*border: 1px solid white;*/
+   	 	height: 45px;
+    	width: 100%;
+    	color: lightgray;
+    	border-left : 4px solid #2c3136;
+	}
+	#active
+	{
+		background-color:#33383e;
+		border-left : 4px solid orange;
+	}
+	.side-elements:hover
+	{
+		background-color:#33383e;
+		border-left : 4px solid #33383e;
+	}
+	.side-elements i
+	{
+		font-size: 25px;
+    	margin: 8px;
+    	margin-left: 15px;
+	}
+	.hiding
+	{
+		display:inline-block;
+	}
+	#setting
+	{
+		float: right;
+	}
+	#setting i
+	{
+		background-color: #e2d5d5;
+	    color: #5a5a5a;
+	    font-size: 25px;
+	    margin: 11px;
+	    padding: 10px;
+	}
+	
+	#hide
+	{
+		width: 68px;
+    	height: 100%;
+    	background-color: transparent;
+    	border:none;
+    	border-right: 0.1px solid lightgray;
+	}
+	#hide i
+	{
+		font-size : 25px;
+		color:black;
+	}
+	#dropdown
+	{
+		height: 118px;
+	    width: 178px;
+	    background-color: white;
+	    position: absolute;
+	    left: auto;
+	    right: 10px;
+	    border:0.1px solid lightgray;
+	    border-top:none;
+	    padding-left:0px;
+	    transition:0.3s;
+	    display:none;
+	    z-index:1;
+	}
+	#dropdown i
+	{
+		margin: 12px;
+    	font-size: 17px;
+	}
+	#dropdown li
+	{
+	    list-style-type: none;
+	    width: 100%;
+	    height: 33%;
+	    font-size: 14px;
+	}
+	#dropdown a
+	{
+		text-decoration : none;
+		color : #7b6868;
+	}
+	#dropdown li:hover
+	{
+		background-color : lightgray;
+	}
+	#header
+	{
+		position: relative;
+	    padding: 12px 30px;
+	    background-color: #fff;
+	    border-bottom: 1px solid #e1e6ef;
+	    margin-bottom: 20px;
+	}
+	#title
+	{
+	    font-size: 22px;
+    	font-family: segoe UI;
+	}
+	#header-icon
+	{
+		font-size: 55px;
+	    color: #37a000;
+	    width: 68px;
+	    float: left;
+	    margin-top: -4px;
+	    line-height: 0;
+	}
+    #header i
+    {
+	    font-size: 60px;
+    	color: #42ad42;
+	   
+	}
+	#detail
+	{
+		margin-left: 70px;
+	}
+    #detail p
+    {
+    	margin: 0;
+    }
+    #content
+    {
+    	width: 100%;
+    }
+    .destination
+    {
+    	margin: 40px 40px;
+        padding: 50px 50px;
+        border: 1px solid lightgray;
+        background-color: white;
+    }
+    #last input,textarea
+    {
+    	border-radius: 0;
+    	box-shadow: none;
+    	border: 1px solid #e4e5e7;
+    	display: block;
+	    width: 100%;
+	    height: 34px;
+	    padding: 6px 12px;
+	    font-size: 14px;
+	    line-height: 1.42857143;
+	    color: #555;
+	    background-color: #fff;
+	    background-image: none;
+    }
+    #element
+    {
+    	margin-bottom: 15px;
+    }
+    #element button
+    {
+    	width: 25px;
+    	color: white;
+    }
+
+	@media only screen and (max-width: 768px) 
+	{
+  		#logo
+  		{
+    		width:100% !important;
+  		}
+  		#nav
+  		{
+  			width:100%;
+  		}
+  		#sidebar
+  		{
+  			display:none ; 
+  			width:0px;
+  			position:absolute;
+  			top:134px;
+  			height : 678px;
+  		}
+  		#main
+  		{
+  			width:100%;
+  			position: relative;
+  		}
+  		.hiding
+  		{
+  			display:none;
+  		}
+  		#last button
+  		{
+  			margin-top: 5px;
+  			margin-bottom: 5px;
+  		}
+  		
+	}
+</style>
+<body>
+		<div  id = "logo"></div>
+		<div id = "nav">
+			<button id="hide"><i class="fa fa-bars"></i></button> 
+			<a href="#" id = "setting"><i class="fa fa-cog"></i></a>
+			<ul id = "dropdown">
+				<a href = "#"><li><i class="fa fa-bars"></i>Profile</li></a>
+				<a href = "#"><li><i class="fa fa-bars"></i>Settings</li></a>
+				<a href = "index.html"><li><i class="fa fa-bars"></i>Logout</li></a>
+			</ul>
+		</div>	
+		<div id = "sidebar">
+			<div id = "user-logo">
+				<center><div id = "img"><img src = "avatar1.png" width="100%" height="100%"></div></center>
+				<center><span class = "hiding">Pallavi Saini</span></center>
+				<div class = "hiding"><div id = "status"></div><span style= "color : #37a000;font-size:13px;float:left">User</span></div>
+			</div>
+
+			<div class = "side-elements" id = "active"><i class="fa fa-home"></i><span class = "hiding"><a href="user-dashboard.html">Dashboard</a></span></div>
+			<div class = "side-elements"id = "active"><i class="fa fa-user"></i><a href="add-destination.html"><span class = "hiding">Passenger</span></a></div>
+			<div class = "side-elements" id = "active"><i class="fa fa-home"></i><span class = "hiding"><a href="add-route.html">Booking</a></span></div>
+
+		</div>
+		<div id = "main">
+			<div id="header">
+			  <div id="header-icon">
+				<i class="fa fa-home"></i>
+			  </div>
+			  <div id="detail">
+			   <large id = "title">Destination/Trip</large>
+			   <p>Trip</p>
+			  </div>
+			</div>
+			<div class="destination">
+				<form>
+					<div class="row" id="element">
+						<label for="dest" class="col-sm-3">Destination Name</label>
+						<div class="col-sm-9" id="last">
+						    <input type="text" name="destination" placeholder="Destination Name">
+						</div>
+					</div>
+					<div class="row" id="element">
+						<label for="desc" class="col-sm-3">Description</label>
+						<div class="col-sm-9" id="last">
+						    <textarea name="description" placeholder="Description" id="description" style="height: 50px;"></textarea>
+						</div>
+					</div>
+					<div class="row" id="element">
+						<label for="map" class="col-sm-3">Google Map</label>
+						<div class="col-sm-9" id="last">
+						    <textarea name="description" placeholder="Google Map" id="description" style="height: 50px;"></textarea>
+						</div>
+					</div>
+					<div class="row" id="element">
+						<label for="img" class="col-sm-3">Image</label>
+						<div class="col-sm-9" id="file">
+						    <input type="file" name="image" aria-describedby="fileHelp">
+						</div>
+					</div>
+					<div class="row" id="element">
+						<label for="status" class="col-sm-3">Status</label>
+						<div class="col-sm-9">
+							<label class="radio-inline"><input type="radio" name="status" value="1" id="dest-status">Active</label>
+							<label class="radio-inline"><input type="radio" name="status" value="0" id="dest-status">Inactive</label>
+						</div>
+					</div>
+					<div class="row" id="element">
+					    <div class="col-sm-3">
+							<button type="reset" class="btn btn-primary" style="min-width: 110px;margin-bottom: 5px !important;">Reset</button>
+						</div>
+						<div class="col-sm-9" id="last">
+							<button type="submit" class="btn btn-success" style="min-width: 110px;margin-bottom: 5px !important;">Submit</button>
+				        </div>	
+					</div>
+				</form>
+			</div>
+		</div>
+</body>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("#hide").click(function()
+			{
+				var width = $("body").innerWidth();
+				if(width > 768)
+				{
+					if($(".hiding").css("display") == "inline-block")
+					{
+						width = width - 58;
+						$(".hiding").hide();
+						$("#main").css("width",width);	
+						$("#nav").css("width",width);
+						$("#sidebar").css("width","58px");
+						$("#logo").css("width","58px");
+						$("#img").css("height","35px");
+						$("#img").css("width","35px");
+						$("#user-logo").css("height","10"+"%");
+					}
+					else
+					{		
+						width = width - 260;
+						$("#main").css("width",width);	
+						$("#nav").css("width",width);
+						$("#sidebar").css("width","260"+"px");		
+						$("#logo").css("width","260px");
+						$("#user-logo").css("height","25"+"%");
+
+						setTimeout(function(){
+							$(".hiding").show();	
+							$("#img").css("height","70px");
+						    $("#img").css("width","70px");					
+						},150)	
+					}
+				}
+				else
+				{
+					if($("#sidebar").css('display') == "block")
+					{
+						$("#sidebar").animate({width:"0px"});
+						 setTimeout(function(){
+							$(".hiding").hide();
+						 },400);
+						setTimeout(function(){
+							$("#sidebar").hide();
+						},600);
+					}
+					else
+					{
+						$("#sidebar").show();
+						$("#sidebar").animate({width: "260px"});
+						setTimeout(function(){
+							$(".hiding").show();
+						},600);
+					}
+				}
+			});
+
+			$("#setting").click(function(){
+				if($("#dropdown").css('display') == "block")
+				{
+					$("#dropdown").hide();
+				}
+				else
+				{
+					$("#dropdown").show();
+				}
+			});
+
+		});
+
+	$(document).ready(function(){
+		var flag = $("#sidebar").css('display');
+		var width = $(document).innerWidth();
+		if(flag == "none" || width <= 768)
+		{
+			width = 100;
+			$("#nav").css("width",width+"%");
+			$("#main").css("width",width+"%");
+		}
+		else
+		{
+			width = width - 260;
+			$("#nav").css("width",width+"px");
+			$("#main").css("width",width+"px");
+		}		
+	});
+
+	$(window).resize(function(){
+		var flag = $("#sidebar").css('display');
+		var width = $(document).innerWidth();
+		if(flag == "none" || width <=768)
+		{
+			width = 100;
+			$("#nav").css("width",width+"%");
+			$("#main").css("width",width+"%");
+		}
+		else
+		{
+			if($(".hiding").css("display") == "inline-block")
+				width = width - 260;
+			else
+				width = width - 58;
+			$("#nav").css("width",width+"px");
+			$("#main").css("width",width+"px");
+		}		
+	});
+</script>
+</html>
